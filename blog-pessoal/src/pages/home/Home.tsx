@@ -4,21 +4,24 @@ import './Home.css';
 function Home() {
     return (
         <>
-            <div>
-                <ul id="menu">
-                    <li><a href="https://google.com.br">Dúvida? Pesquise aqui</a></li>
-                    <li><a href="https://generationbrasil.online/#/login">Generation Brasil</a></li>
-                </ul>
-            </div>
+            <div className="w-screen flex justify-center">
+                <div>
+                    <div className="max-w-7xl flex flex-col items-center">
+                        <h2>Seja Bem Vinde!</h2>
+                        <p>Expresse aqui seus pensamentos e opniões</p>
+                    </div>
 
-            <hr />
-
-            <div>
-                <h1 className="titulo">PINGUINS 🐧</h1>
-                <img src="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png" alt="Penguins" className="img" />
+                    <div className="max-w-7xl flex flex-col items-center">
+                        <img
+                            src="https://i.imgur.com/VpwApCU.png"
+                            alt="Imagem da Página Home"
+                            width="400px"
+                        />
+                    </div>
+                </div>
             </div>
         </>
-    );
+    )
 }
 
-export default Home;
+export default Home
