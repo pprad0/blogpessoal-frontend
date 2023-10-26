@@ -1,7 +1,11 @@
-import React from "react";
-import './Home.css';
+import { useContext } from "react"
+import { AuthContext } from "../../context/AuthContext"
 
 function Home() {
+
+    // const { nome } = useContext(AuthContext)
+
+
     return (
         <>
             <div className="bg-indigo-900 flex justify-center">
