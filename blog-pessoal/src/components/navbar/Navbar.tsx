@@ -1,18 +1,34 @@
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../context/AuthContext"
+import { useContext } from "react"
+
+
 function Navbar() {
+
+  const navigate = useNavigate()
+  const { handleLogout } = useContext(AuthContext)
+
+  function logout() {
+    handleLogout()
+    alert('Usuário deslogado com sucesso!')
+    navigate('/login')
+  }
+
+
   return (
     <>
       <div className='w-full bg-indigo-700 text-white
               flex justify-center py-4'>
 
         <div className="container flex justify-between text-lg">
-          Blog Pessoal
+          <Link to='/home' className="text-2x1 font-bold">Blog Pessoal </Link>
 
           <div className='flex gap-4'>
             Postagens
-            Temas
-            Cadastrar tema
+            <Link to='/temas' className='hover:underline'>Temas</Link>
+            <Link to='/cadastroTema' className='hover:underline'>Cadastrar Tema</Link>
             Perfil
-            Sair
+            <Link to='' onClick={logout} className='hover:underline'>Sair</Link>
           </div>
         </div>
       </div>

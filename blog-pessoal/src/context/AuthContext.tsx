@@ -13,7 +13,7 @@ interface AuthContextProps {
 interface AuthProviderProps {
   children: ReactNode
 }
-
+//Criamos o Contexto, e definimos o modelo de dados que serão gravados
 export const AuthContext = createContext({} as AuthContextProps)
 
 export function AuthProvider({ children }: AuthProviderProps) {
