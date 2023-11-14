@@ -39,13 +39,13 @@ function DeletarPostagem() {
       alert('Você precisa estar logado')
       navigate('/login')
     }
-  }, [token, navigate])
+  }, [token])
 
   useEffect(() => {
     if (id !== undefined) {
       buscarPorId(id)
     }
-  }, [id, buscarPorId])
+  }, [id])
 
   async function deletarPostagem() {
     setIsLoading(true)

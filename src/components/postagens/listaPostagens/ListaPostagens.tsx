@@ -38,11 +38,11 @@ function ListaPostagens() {
       alert('Você precisa estar logado')
       navigate('/');
     }
-  }, [token, navigate])
+  }, [token])
 
   useEffect(() => {
     buscarPostagens()
-  }, [postagens.length, buscarPostagens])
+  }, [postagens.length])
 
   return (
     <>
@@ -58,7 +58,7 @@ function ListaPostagens() {
       )}
 
       <div className='container mx-auto my-4 
-    grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+        grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 
         {postagens.map((postagem) => (
           <CardPostagens key={postagem.id} post={postagem} />

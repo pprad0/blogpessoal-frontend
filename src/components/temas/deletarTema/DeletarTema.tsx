@@ -2,11 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 
 import { buscar, deletar } from "../../../services/Service";
-
+import { AuthContext } from "../../../context/AuthContext";
 
 import Tema from "../../../models/Tema";
 import { RotatingLines } from "react-loader-spinner";
-import { AuthContext } from "../../../context/AuthContext";
 
 function DeletarTema() {
 
@@ -95,7 +94,7 @@ function DeletarTema() {
 
           <button
             className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 
-                          flex items-center justify-center'
+                            flex items-center justify-center'
             onClick={deletarTema}>
 
             {isLoading ?
@@ -115,5 +114,4 @@ function DeletarTema() {
     </div>
   )
 }
-
 export default DeletarTema

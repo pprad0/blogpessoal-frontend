@@ -3,9 +3,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
 
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
+import { AuthContext } from "../../../context/AuthContext";
 
 import Tema from "../../../models/Tema";
-import { AuthContext } from "../../../context/AuthContext";
 
 function FormularioTema() {
 
@@ -39,13 +39,13 @@ function FormularioTema() {
       alert('Você precisa estar logado');
       navigate('/login');
     }
-  }, [token, navigate]);
+  }, [token]);
 
   useEffect(() => {
     if (id !== undefined) {
       buscarPorId(id)
     }
-  }, [id, buscarPorId])
+  }, [id])
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setTema({
