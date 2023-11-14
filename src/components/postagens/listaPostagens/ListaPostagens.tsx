@@ -38,11 +38,11 @@ function ListaPostagens() {
       alert('Você precisa estar logado')
       navigate('/');
     }
-  }, [token])
+  }, [token, navigate])
 
   useEffect(() => {
     buscarPostagens()
-  }, [postagens.length])
+  }, [postagens.length, buscarPostagens])
 
   return (
     <>

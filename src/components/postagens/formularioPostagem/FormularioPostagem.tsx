@@ -52,7 +52,7 @@ function FormularioPostagem() {
       alert('Você precisa estar logado');
       navigate('/');
     }
-  }, [token])
+  }, [token, navigate])
 
   useEffect(() => {
     buscarTemas()
@@ -60,14 +60,14 @@ function FormularioPostagem() {
     if (id !== undefined) {
       buscarPostagemPorId(id)
     }
-  }, [id])
+  }, [id, buscarTemas, buscarPostagemPorId])
 
   useEffect(() => {
     setPostagem({
       ...postagem,
       tema: tema,
     })
-  }, [tema])
+  }, [tema, postagem])
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setPostagem({
@@ -86,7 +86,7 @@ function FormularioPostagem() {
     e.preventDefault()
     setIsLoading(true)
 
-    if (id != undefined) {
+    if (id !== undefined) {
       try {
         await atualizar(`/postagens`, postagem, setPostagem, {
           headers: {

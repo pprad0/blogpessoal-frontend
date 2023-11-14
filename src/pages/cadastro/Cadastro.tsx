@@ -26,7 +26,7 @@ function Cadastro() {
     if (usuario.id !== 0) {
       retornar()
     }
-  }, [usuario])
+  }, [usuario, retornar])
 
   function retornar() {
     navigate('/login')

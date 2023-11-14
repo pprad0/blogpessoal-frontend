@@ -37,11 +37,11 @@ function ListaTemas() {
       alert('Você precisa estar logado');
       navigate('/login');
     }
-  }, [token])
+  }, [token, navigate])
 
   useEffect(() => {
     buscarTemas()
-  }, [temas.length])
+  }, [temas.length, buscarTemas])
 
   return (
     <>

@@ -39,13 +39,13 @@ function FormularioTema() {
       alert('Você precisa estar logado');
       navigate('/login');
     }
-  }, [token]);
+  }, [token, navigate]);
 
   useEffect(() => {
     if (id !== undefined) {
       buscarPorId(id)
     }
-  }, [id])
+  }, [id, buscarPorId])
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setTema({
