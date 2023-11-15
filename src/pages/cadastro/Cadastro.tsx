@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { cadastrarUsuario } from '../../services/Service'
 import Usuario from '../../models/Usuario'
+import { toastAlerta } from '../../utils/toastAlerta'
 
 import './Cadastro.css'
 
@@ -51,14 +52,14 @@ function Cadastro() {
 
       try {
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario)
-        alert('Usuário cadastrado com sucesso')
+        toastAlerta('Usuário cadastrado com sucesso', 'sucesso')
 
       } catch (error) {
-        alert('Erro ao cadastrar o Usuário')
+        toastAlerta('Erro ao cadastrar o Usuário', 'erro')
       }
 
     } else {
-      alert('Dados inconsistentes. Verifique as informações de cadastro.')
+      toastAlerta('Dados inconsistentes. Verifique as informações de cadastro.', 'erro')
       setUsuario({ ...usuario, senha: "" })
       setConfirmaSenha("")
     }
@@ -80,7 +81,7 @@ function Cadastro() {
             id="nome"
             name="nome"
             placeholder="Nome"
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-violet-900 rounded p-2"
             value={usuario.nome}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
@@ -92,7 +93,7 @@ function Cadastro() {
             id="usuario"
             name="usuario"
             placeholder="Usuario"
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-violet-900 rounded p-2"
             value={usuario.usuario}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
@@ -104,7 +105,7 @@ function Cadastro() {
             id="foto"
             name="foto"
             placeholder="Foto"
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-violet-900 rounded p-2"
             value={usuario.foto}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
@@ -116,7 +117,7 @@ function Cadastro() {
             id="senha"
             name="senha"
             placeholder="Senha"
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-violet-900 rounded p-2"
             value={usuario.senha}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
@@ -128,19 +129,19 @@ function Cadastro() {
             id="confirmarSenha"
             name="confirmarSenha"
             placeholder="Confirmar Senha"
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-violet-900 rounded p-2"
             value={confirmaSenha}
             onChange={(e: ChangeEvent<HTMLInputElement>) => handleConfirmarSenha(e)}
           />
         </div>
         <div className="flex justify-around w-full gap-8">
           <button
-            className='rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2'
+            className='rounded text-white bg-amber-800 hover:bg-red-600 w-1/2 py-2'
             onClick={retornar}>
             Cancelar
           </button>
           <button
-            className='rounded text-white bg-indigo-400 hover:bg-indigo-900 w-1/2 
+            className='rounded text-white bg-violet-900 hover:bg-indigo-900 w-1/2 
                                            py-2 flex justify-center'
             type='submit'>
             {isLoading ? <RotatingLines
